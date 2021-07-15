@@ -1,0 +1,4 @@
+{"level":"info","msg":"| 401 |      49.927µs |             ::1 | POST  /init/ |","time":"2021-07-15T13:35:03+08:00"}
+{"level":"info","msg":"| 301 |       5.435µs |             ::1 | POST  /login |","time":"2021-07-15T13:35:14+08:00"}
+{"level":"info","msg":"| 301 |       7.989µs |             ::1 | POST  /base/login |","time":"2021-07-15T13:35:33+08:00"}
+{"level":"info","msg":"| 200 |     104.791µs |             ::1 | POST  /base/login |","time":"2021-07-15T13:39:26+08:00"}
