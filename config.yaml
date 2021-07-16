@@ -4,11 +4,11 @@ http:
   port: 8080
 
 mysql:
-  path: ''
-  config: ''
-  db-name: ''
-  username: ''
-  password: ''
+  path: localhost:3306
+  config: charset=utf8&parseTime=True&loc=Local&timeout=10s
+  db-name: mall
+  username: root
+  password: SmallEast1022.
   max-idle-conns: 10
   max-open-conns: 100
   log-mode: false

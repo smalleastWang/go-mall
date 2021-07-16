@@ -17,7 +17,6 @@ import (
 //)
 //
 var (
-//	GVA_DB     *gorm.DB
 //	GVA_REDIS  *redis.Client
 	CONFIG config.Server
 //	GVA_VP     *viper.Viper

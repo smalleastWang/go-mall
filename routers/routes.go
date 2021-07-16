@@ -11,7 +11,7 @@ import (
 
 func Routes() *gin.Engine {
 	Router := gin.Default()
-	Router.Use(middleware.LoadTls())  // 打开就能玩https了
+	//Router.Use(middleware.LoadTls())  // 打开就能玩https了
 	//gin.Logger("use middleware logger")
 	Router.Use(utils.Logger())
 	fmt.Println("use middleware logger")
@@ -22,13 +22,15 @@ func Routes() *gin.Engine {
 	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	fmt.Println("register swagger handler")
 
-	// 方便统一添加路由组前缀 多服务器上线使用
+	// 公共路由
 	PublicGroup := Router.Group("")
+	PublicGroup.Use(middleware.EnableCookieSession())
 	{
 		InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
 	}
-	PrivateGroup := Router.Group("")
-	PrivateGroup.Use(middleware.AuthMiddleWare())
+	// 鉴权路由
+	PrivateGroup := Router.Group("api")
+	PrivateGroup.Use(middleware.AuthSession())
 	{
 		InitApiRouter(PrivateGroup)                   // 注册功能api路由
 	}

@@ -1,4 +1,4 @@
-package response
+package utils
 
 import (
 	"github.com/gin-gonic/gin"
@@ -6,22 +6,22 @@ import (
 )
 
 type Response struct {
-	Code int         `json:"code"`
-	Data interface{} `json:"data"`
-	Msg  string      `json:"msg"`
+	Code    string      `json:"code"`
+	Data    interface{} `json:"data"`
+	Message string      `json:"message"`
 }
 
 const (
-	ERROR   = 7
-	SUCCESS = 0
+	ERROR   = "0001"
+	SUCCESS = "200"
 )
 
-func Result(code int, data interface{}, msg string, c *gin.Context) {
+func Result(code string, data interface{}, message string, c *gin.Context) {
 	// 开始时间
 	c.JSON(http.StatusOK, Response{
 		code,
 		data,
-		msg,
+		message,
 	})
 }
 
@@ -52,4 +52,3 @@ func FailWithMessage(message string, c *gin.Context) {
 func FailWithDetailed(data interface{}, message string, c *gin.Context) {
 	Result(ERROR, data, message, c)
 }
-
