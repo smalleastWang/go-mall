@@ -7,9 +7,10 @@ import (
 
 
 func InitApiRouter(Router *gin.RouterGroup) (R gin.IRoutes) {
-	BaseRouter := Router.Group("init")
+	BaseRouter := Router.Group("user")
 	{
-		BaseRouter.POST("/", controllers.Init)
+		//BaseRouter.POST("/", controllers.Init)
+		BaseRouter.POST("reset-password", controllers.ResetPassword)
 	}
 	return BaseRouter
 }

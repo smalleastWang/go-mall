@@ -27,6 +27,11 @@ type RegisterBo struct {
 	Email			string `json:"email" form:"email" binding:"required"`
 	Nickname	string `json:"nickname" form:"nickname"`
 }
+type ResetPasswordBo struct {
+	Id 	uint `json:"id"`
+	OldPassword string `json:"oldPassword" form:"oldPassword" binding:"required"`
+	NewPassword string `json:"newPassword" form:"newPassword" binding:"required"`
+}
 
 
 // 用户注册时新增
@@ -49,6 +54,11 @@ func UserDetail(id uint) (user User) {
 	utils.GetDB().Where("id = ?", id).First(&user)
 	return
 }
+func UserUpdate(data *ResetPasswordBo) (user User) {
+	utils.GetDB().Where("id = ?", data.Id).First(&user).Update("password", data.NewPassword)
+	return
+}
+
 func UserDelete(id uint) (user User) {
 	utils.GetDB().Delete(&User{}, id)
 	return

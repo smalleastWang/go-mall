@@ -6,7 +6,7 @@ http:
 mysql:
   path: localhost:3306
   config: charset=utf8&parseTime=True&loc=Local&timeout=10s
-  db-name: mall
+  db-name: go-mall
   username: root
   password: SmallEast1022.
   max-idle-conns: 10
