@@ -1,0 +1,107 @@
+definitions:
+  models.LoginBo:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  models.LoginVo:
+    properties:
+      avatar:
+        type: string
+      nickname:
+        type: string
+      token:
+        type: string
+      userId:
+        type: integer
+      username:
+        type: string
+    type: object
+  models.RegisterBo:
+    properties:
+      confirmPassword:
+        type: string
+      email:
+        type: string
+      nickname:
+        type: string
+      password:
+        type: string
+      phone:
+        type: integer
+      username:
+        type: string
+    required:
+    - confirmPassword
+    - email
+    - password
+    - phone
+    - username
+    type: object
+info:
+  contact: {}
+paths:
+  /public/user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 客户用户名, 客户手机号码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginBo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.LoginVo'
+      summary: 登录
+      tags:
+      - user
+  /public/user/logout:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"退出成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 退出登录
+      tags:
+      - user
+  /public/user/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 哈哈
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegisterBo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.LoginVo'
+      summary: 注册
+      tags:
+      - user
+swagger: "2.0"

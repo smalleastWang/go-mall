@@ -1,9 +1,5 @@
 package models
 
-import (
-	"go-mall/utils"
-)
-
 type User struct {
 	OrmDefaultModel
 	Username	string 	`gorm:"username"`
@@ -33,33 +29,10 @@ type ResetPasswordBo struct {
 	NewPassword string `json:"newPassword" form:"newPassword" binding:"required"`
 }
 
-
-// 用户注册时新增
-func AddUser(user *User) {
-	utils.GetDB().Create(&user)
-	return
-}
-
-func UserDetailByName(name string) (user User) {
-	utils.GetDB().Where("username = ?", name).First(&user)
-	return
-}
-
-func UserDetailByEmail(email string) (user User) {
-	utils.GetDB().Where("email = ?", email).First(&user)
-	return
-}
-
-func UserDetail(id uint) (user User) {
-	utils.GetDB().Where("id = ?", id).First(&user)
-	return
-}
-func UserUpdate(data *ResetPasswordBo) (user User) {
-	utils.GetDB().Where("id = ?", data.Id).First(&user).Update("password", data.NewPassword)
-	return
-}
-
-func UserDelete(id uint) (user User) {
-	utils.GetDB().Delete(&User{}, id)
-	return
+type LoginVo struct {
+	ID			uint `json:"userId"`
+	Token 		string `json:"token"`
+	Username 	string `json:"username"`
+	Nickname	string `json:"nickname"`
+	Avatar		string `json:"avatar"`
 }
