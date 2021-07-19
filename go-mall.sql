@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 19/07/2021 15:58:12
+ Date: 19/07/2021 18:37:08
 */
 
 SET NAMES utf8mb4;
@@ -58,7 +58,7 @@ CREATE TABLE `banner` (
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
-  `id` int(32) NOT NULL COMMENT '主键',
+  `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `price` float(32,2) DEFAULT NULL COMMENT '原价',
   `discount_price` float(32,2) DEFAULT NULL COMMENT '折后价',
   `name` char(200) COLLATE utf8_bin DEFAULT NULL COMMENT '商品名称',
@@ -69,7 +69,14 @@ CREATE TABLE `goods` (
   `updated_at` datetime DEFAULT NULL COMMENT '更新时间',
   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+BEGIN;
+INSERT INTO `goods` VALUES (3, 12.00, 12.00, '苹果', '哈哈', 0, 'ok', '2021-07-19 18:24:42', '2021-07-19 18:24:42', NULL);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for order
@@ -112,5 +119,12 @@ CREATE TABLE `user` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+BEGIN;
+INSERT INTO `user` VALUES (9, '哈哈23', '$2a$10$vQ7LY7SzphqGucjMJGxeyepOQaULwtVnacFbPvjlUfYB3zcJ4JZeO', '963732141@qq.com', '18328584905', '呵呵', '', '2021-07-19 11:12:29', '2021-07-19 11:12:29', NULL);
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
