@@ -20,7 +20,7 @@ func Logger() gin.HandlerFunc {
 	}
 	logClient.Out = src
 	logClient.SetLevel(logrus.DebugLevel)
-	apiLogPath := "api.log"
+	apiLogPath := "logs/api.log"
 	logWriter, err := rotatelogs.New(
 		apiLogPath+".%Y-%m-%d-%H-%M.log",
 		rotatelogs.WithLinkName(apiLogPath), // 生成软链，指向最新日志文件

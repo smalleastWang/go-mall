@@ -5,8 +5,8 @@ import (
 	"go-mall/controllers"
 )
 
-func InitBaseRouter(Router *gin.RouterGroup) (R gin.IRoutes) {
-	BaseRouter := Router.Group("")
+func UserBaseRouter(Router *gin.RouterGroup) (R gin.IRoutes) {
+	BaseRouter := Router.Group("user")
 	{
 		BaseRouter.POST("login", controllers.Login)
 		BaseRouter.POST("logout", controllers.Logout)
