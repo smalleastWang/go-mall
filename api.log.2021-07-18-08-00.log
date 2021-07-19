@@ -26,3 +26,10 @@
 {"level":"info","msg":"| 404 |            0s |             ::1 | POST  /init/reset-password |","time":"2021-07-18T11:53:19+08:00"}
 {"level":"info","msg":"| 404 |            0s |             ::1 | POST  /user/reset-password |","time":"2021-07-18T11:55:07+08:00"}
 {"level":"info","msg":"| 404 |            0s |             ::1 | POST  /user/reset-password |","time":"2021-07-18T11:55:27+08:00"}
+{"level":"info","msg":"| 200 |    183.6041ms |             ::1 | POST  /reset-password |","time":"2021-07-18T12:54:17+08:00"}
+{"level":"info","msg":"| 200 |       832.7µs |             ::1 | POST  /logout |","time":"2021-07-18T12:55:02+08:00"}
+{"level":"info","msg":"| 200 |     83.4477ms |             ::1 | POST  /login |","time":"2021-07-18T12:55:31+08:00"}
+{"level":"info","msg":"| 200 |     83.0751ms |             ::1 | POST  /login |","time":"2021-07-18T12:55:37+08:00"}
+{"level":"info","msg":"| 200 |       158.2µs |             ::1 | POST  /login |","time":"2021-07-18T12:56:11+08:00"}
+{"level":"info","msg":"| 200 |    176.7609ms |             ::1 | POST  /reset-password |","time":"2021-07-18T12:57:05+08:00"}
+{"level":"info","msg":"| 200 |     85.3354ms |             ::1 | POST  /login |","time":"2021-07-18T12:57:18+08:00"}
